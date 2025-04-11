@@ -13,7 +13,7 @@ def setup_assistant() :
     #
     model = 'gpt-4o-mini'
     instructions="Answer simple questions about the relevant document."
-    files_paths = file_paths = ["../README.md"]
+    files_paths = file_paths = ["../README.md"] # You can try some example files instead in the repo
     json_file = './data.json' # IMPORTANT DELETE THIS FILE TO 
     #
     #
