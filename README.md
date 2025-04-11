@@ -48,6 +48,7 @@ curl https://api.openai.com/v1/chat/completions \
 * See aitest.py for easliy modified parameters.
  
 ## Sample output
+  *Note a potential security issue that the name of the file can be obtained by the user. See last question below*
 ```
 python testai.py
 SETUP FROM SCRATCH
