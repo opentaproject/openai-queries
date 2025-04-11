@@ -48,7 +48,6 @@ curl https://api.openai.com/v1/chat/completions \
 * See aitest.py for easliy modified parameters.
  
 ## Sample output
-  *Note a potential security issue that the name of the file can be obtained by the user. See last question below*
 ```
 python testai.py
 SETUP FROM SCRATCH
@@ -74,8 +73,6 @@ QUESTION: (or 'quit' to exit): What is the name of the file.
 Waiting for completion...
 Waiting for completion...
 Waiting for completion...
-REPLY = The name of the file is `README.md`【12:0†source】.
-QUESTION: (or 'quit' to exit): 
 ```
 
 
