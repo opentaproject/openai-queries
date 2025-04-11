@@ -45,8 +45,7 @@ curl https://api.openai.com/v1/chat/completions \
   python aitest.py
   ```
 ### Use other files to upload
-  See line 21 n aitest.py
-### Give other instructions
+* See aitest.py for easliy modified parameters.
  
 
 
