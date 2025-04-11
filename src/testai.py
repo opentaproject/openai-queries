@@ -8,18 +8,28 @@ import requests
 import time
 
 def setup_assistant() :
+    # 
+    # Basic parameters for the assistant
+    #
     model = 'gpt-4o-mini'
+    instructions="Answer simple questions about the relevant document."
+    files_paths = file_paths = ["../README.md"]
+    json_file = './data.json' # IMPORTANT DELETE THIS FILE TO 
+    #
+    #
     client = OpenAI()
     assistant = client.beta.assistants.create(
       name="Simple Query ",
-      instructions="Answer simple questions about the relevant document.",
+      instructions=instructions,
       model=model,
       tools=[{"type": "file_search"}],
     )
     assistant_id = assistant.id
     vector_store = client.vector_stores.create(name="Simple file")
     vector_store_id = vector_store.id
-    file_paths = ["./example.md"]
+    #
+    # Give files to upload 
+    # 
     file_streams = [open(path, "rb") for path in file_paths]
     file_batch = client.vector_stores.file_batches.upload_and_poll( vector_store_id=vector_store_id, files=file_streams)
     assistant = client.beta.assistants.update(
@@ -29,7 +39,7 @@ def setup_assistant() :
     thread = client.beta.threads.create(); 
     thread_id = thread.id
     ids = {'assistant_id' : assistant_id, 'thread_id' : thread_id }
-    with open('./data.json', 'w') as f:
+    with open(json_file, 'w') as f:
         json.dump(ids , f)
     return ids
 
